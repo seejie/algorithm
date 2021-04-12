@@ -12,8 +12,8 @@ const bubbleSort = arr => {
   }
   return arr.toString()
 }
-
 // console.log(bubbleSort(arr), '-----bubbleSort(arr)-----')
+
 // 第一次：9次
 // [1, 6, 7, 4, 5, 8, 9, 0, 2, 3]
 // [1, 6, 7, 4, 5, 8, 9, 0, 2, 3]
@@ -91,10 +91,32 @@ const bubbleSortEarlyBreak = arr => {
   }
   return arr.toString()
 }
+// console.log(bubbleSortEarlyBreak(arr), '-----bubbleSortEarlyBreak(arr)-----')
 
-console.log(bubbleSortEarlyBreak(arr), '-----bubbleSortEarlyBreak(arr)-----')
-
+// 同时从两头分别排序
 const bubbleSortBothSide = arr => {
+  let low = 0
+  let high = arr.length - 1
+  while (low < high) {
+    // 找到最大值放到右边
+    for (let i = low; i < high; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+      }
+    }
+    high--
 
+    // 找到最小值放到左边
+    for (let j = high; j > low; j--) {
+      if (arr[j] < arr[j - 1]) {
+        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]]
+      }
+    }
+    low++
+
+    console.log(`第${low}次循环`, arr.toString())
+  }
+  return arr.toString()
 }
 
+console.log(bubbleSortBothSide(arr), '-----bubbleSortBothSide(arr)-----')
