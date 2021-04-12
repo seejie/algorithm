@@ -120,3 +120,5 @@ const bubbleSortBothSide = arr => {
 }
 
 console.log(bubbleSortBothSide(arr), '-----bubbleSortBothSide(arr)-----')
+
+// 同时从两头分别排序，并判断是否提前完成
