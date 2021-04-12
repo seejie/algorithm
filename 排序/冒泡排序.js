@@ -1,5 +1,5 @@
-const arr = [1, 6, 7, 4, 5, 8, 9, 0, 2, 3]
-
+// 常规实现
+let arr = [1, 6, 7, 4, 5, 8, 9, 0, 2, 3]
 const bubbleSort = arr => {
   const len = arr.length
   for (let i = 0; i < len; i++) {
@@ -7,10 +7,10 @@ const bubbleSort = arr => {
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
       }
-      // console.log(`第${i+1}次循环`, arr)
+      console.log(`第${i+1}次循环`, arr.toString())
     }
   }
-  return arr
+  return arr.toString()
 }
 
 // console.log(bubbleSort(arr), '-----bubbleSort(arr)-----')
@@ -70,27 +70,31 @@ const bubbleSort = arr => {
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // 判断排序是否提前完成
-const bubbleSort2 = arr => {
+// arr = [1, 0, 2, 3, 4, 5, 6, 7, 8, 9]
+const bubbleSortEarlyBreak = arr => {
   const len = arr.length
-  for (let i = 0; i < len; i++) {
+  a: for (let i = 0; i < len; i++) {
     // 记录每次比较是否不需要交换
     const bool = []
     for (let j = 0; j < len - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         ;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
-        mark = false
       } else {
         // 已排好序，不需要交换
         bool.push(true)
       }
       // 本轮排序所有两两相邻都已比较完成，并且都不需要交换位置，后续无需再比较
       const count = bool.filter(Boolean).length
-      if ((count === len - i - 2)) return arr
+      if ((count === len - i - 2)) break a
       console.log(`第${i+1}次循环`, arr.toString())
     }
   }
-  return arr
+  return arr.toString()
 }
 
-console.log(bubbleSort2(arr), '-----bubbleSort2(arr)-----')
+console.log(bubbleSortEarlyBreak(arr), '-----bubbleSortEarlyBreak(arr)-----')
+
+const bubbleSortBothSide = arr => {
+
+}
 
