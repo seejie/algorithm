@@ -69,6 +69,7 @@ const bubbleSort = arr => {
 // 第9次：1次
 // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+// 判断排序是否提前完成
 const bubbleSort2 = arr => {
   const len = arr.length
   for (let i = 0; i < len; i++) {
