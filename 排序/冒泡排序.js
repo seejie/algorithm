@@ -1,4 +1,5 @@
 // 常规实现
+// 通过相邻元素的比较和交换，使得每一趟循环都能找到未有序数组的最大值或最小值。
 let arr = [1, 6, 7, 4, 5, 8, 9, 0, 2, 3]
 const bubbleSort = arr => {
   const len = arr.length
